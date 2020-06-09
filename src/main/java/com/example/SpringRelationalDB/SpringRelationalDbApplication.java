@@ -34,8 +34,8 @@ public class SpringRelationalDbApplication implements CommandLineRunner {
 		splitupNames.forEach(name-> log.info(String.format("Inserting customer record for %s,%s",name[0],name[1])));
 		jdbcTemplate.batchUpdate("INSERT INTO Customer(FirstName,LastName) VALUES(?,?)",splitupNames);
 		//search for the details of firstName = sunanda;
-		jdbcTemplate.query("SELECT * FROM Customer WHERE firstName = ?",new Object[]{"Sunanda"},(rs,rowNum)->new Customer(rs.getLong(1),rs.getString(2),rs.getString(3)))
-				.forEach(customer -> log.info(customer.toString()));
+//		jdbcTemplate.query("SELECT * FROM Customer WHERE firstName = ?",new Object[]{"Sunanda"},(rs,rowNum)->new Customer(rs.getLong(1),rs.getString(2),rs.getString(3)))
+//				.forEach(customer -> log.info(customer.toString()));
 	}
 
 }
